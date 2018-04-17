@@ -1,5 +1,3 @@
-
-
 .icon-content {
     background: #673ab7;
     color: white;
@@ -13,11 +11,37 @@
 }
 
 .example-full-width {
-   
     width: 100%;
 }
 
-button{
+button {
     font-size: 1.1em;
     padding: 0px 100px;
+}
+
+.text-red {
+    font-family: roboto;
+    font-size: .8em;
+    color: red;
+    text-align: left;
+    padding: 5px;
+    position: relative;
+    animation: show-alert .5s ;
+  
+}
+.relleno{
+    height: 24px;
+    width: 100%;
+}
+
+@keyframes show-alert {
+    from {
+       transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+
+        opacity: 1;
+    }
 }

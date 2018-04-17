@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
@@ -15,9 +16,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-
+    FormsModule,
     SharedModule,
- 
+    CommonModule,
     RouterModule.forChild(routes),
   ],
   declarations: [LoginComponent]

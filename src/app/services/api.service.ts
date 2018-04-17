@@ -15,27 +15,32 @@ export class ApiService {
 
   }
 
+  setBearer(token){
+    this.headers.append("Bearer",token)
+    this.options = new RequestOptions({ headers: this.headers });
+
+  }
+  removeBearer(){
+    this.headers.delete("Bearer")
+    this.options = new RequestOptions({ headers: this.headers });
+  }
+
   request(name, data?, method?) {
-
     return new Observable(observer => {
-      // this.http[method||"get"].
-
       const onResult = (res) => {
-        observer.next(res)
-        console.log(res)
+        observer.next(JSON.parse(res._body))
       }
       const onError = (err) => {
-        observer.error(err)
-        console.log(err)
+        observer.error(JSON.parse(err._body))
       }
 
       if (data) {
 
-        this.http["post" || method](api(name), data, this.options).suscribe(onResult, onError);
+        this.http["post" || method](api(name), data, this.options).subscribe(onResult, onError);
 
       } else {
-        
-        this.http["get" || method](api(name), this.options).suscribe(onResult, onError);
+
+        this.http["get" || method](api(name), this.options).subscribe(onResult, onError);
 
       }
     });

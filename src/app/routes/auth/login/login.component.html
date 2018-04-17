@@ -1,17 +1,20 @@
 <div fxLayout="row">
   <div class=icon-content mat color="primary" fxFlex="60" fxLayoutAlign="center center">Logotipo</div>
   <div class=form-content fxFlex="40" fxLayoutAlign="center center">
-    <form class="example-form" (submit)=login($event) >
+    <form class="example-form" method=post action=# (submit)=login($event)>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Usuario" name=user>
+        <input matInput placeholder="Usuario" type="email" name=email [(ngModel)]=email >
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="Contraseña" name=password>
+        <input matInput type="password" placeholder="Contraseña" [(ngModel)]=password name=password>
       </mat-form-field>
       <div fxLayoutAlign="center center">
-        <button  mat-raised-button color="primary" >Login</button>
+        <button mat-raised-button color="primary">Login</button>
       </div>
+      <div *ngIf=!errorMessage class=relleno fxLayoutAlign="center center"></div>
 
-    </form>
+      <div *ngIf=errorMessage class=text-red fxLayoutAlign="center center">{{errorMessage}}</div>
+ 
+    </form> 
   </div>
-</div>
+</div>  
