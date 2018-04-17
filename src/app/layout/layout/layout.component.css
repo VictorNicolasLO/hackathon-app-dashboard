@@ -1,0 +1,87 @@
+.example-container {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    width: 350px;
+    text-align: center;
+    margin-left: -16px;
+}
+
+.example-sidenav {
+    width: 330px;
+    padding: 0 0px;
+}
+.right{
+    position: absolute;
+    right: 10px;
+}
+
+.header {
+    text-align: center;
+    padding: 100px 60px;
+    font-family: roboto;
+    font-weight: 200;
+    font-size: 1.5em;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle:hover {
+    background: rgba(255, 255, 255, 0.11);
+    cursor: pointer;
+}
+
+.head-divider {
+    margin-bottom: 50px;
+}
+
+.menu-item>span {
+    font-size: 1.2em;
+    font-family: roboto;
+    text-align: left;
+    display: inline-block !important;
+}
+
+.menu-item>i {
+    margin-right: 15px;
+}
+
+.menu-item {
+    color: rgb(71, 71, 71);
+    padding: 15px;
+    width: 100%;
+    transition: .2s background;
+    text-align: left;
+    transition: .2s;
+}
+
+.menu-item:hover {
+    background: rgba(128, 128, 128, 0.137);
+    cursor: pointer;
+}
+
+.tolbar{
+    animation: show-top .4s !important;
+}
+
+@keyframes show-top{
+    from{
+        margin-top: -64px;
+    }
+    to{
+        margin-top: 0px;
+    }
+}

@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<div fxLayout="row">
+  <div class=icon-content mat color="primary" fxFlex="60" fxLayoutAlign="center center">Logotipo</div>
+  <div class=form-content fxFlex="40" fxLayoutAlign="center center">
+    <form class="example-form" (submit)=login($event) >
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Usuario" name=user>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Contraseña" name=password>
+      </mat-form-field>
+      <div fxLayoutAlign="center center">
+        <button  mat-raised-button color="primary" >Login</button>
+      </div>
+
+    </form>
+  </div>
+</div>

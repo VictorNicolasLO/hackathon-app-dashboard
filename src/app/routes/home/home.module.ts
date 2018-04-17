@@ -5,7 +5,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent },
 
 ]

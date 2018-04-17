@@ -1,1 +1,44 @@
-<router-outlet></router-outlet>
+<mat-toolbar class="tolbar" color="primary">
+    <mat-toolbar-row>
+        <div class=title>
+            <h4>Veify</h4>
+        </div>
+        <div class=circle (click)="drawer.toggle()">
+            <i class="material-icons">menu</i>
+        </div>
+        <div class=circle >
+            <i class="material-icons">search</i>
+        </div>
+        <div class=circle >
+            <i class="material-icons">dashboard</i>
+        </div>
+        <div class="right circle" >
+                <i class="material-icons">person</i>
+            </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav mat-elevation-z2" mode="side" opened="false">
+        <div class=header fxLayoutAlign="center center">Logo</div>
+        <div>
+
+            <div (click)="goTo(menuItem.url)" *ngFor="let menuItem of menu" class=menu-item fxLayout="row">
+                <i class="material-icons" fxFlex="10" fxLayoutAlign="center left">{{menuItem.icon}}</i>
+                <span fxFlex="90" fxLayoutAlign="center left">{{menuItem.name}}</span>
+            </div>
+
+        </div>
+
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+
+
+
+        <div class=container>
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+</mat-drawer-container>

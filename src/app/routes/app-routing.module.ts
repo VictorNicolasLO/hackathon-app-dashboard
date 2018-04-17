@@ -19,13 +19,14 @@ const routes: Routes = [
     },
     
     { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+    { path: '**', redirectTo: 'home' }
 ];
 
 
 @NgModule({
     imports: [
         SharedModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
         
         //    ServiceWorkerModule
     ],
