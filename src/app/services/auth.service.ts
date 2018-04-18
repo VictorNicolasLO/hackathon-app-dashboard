@@ -13,7 +13,7 @@ export class AuthService {
       "password": password
     }).subscribe((res: any) => {
       this.setStorage("User", res.user);
-      this.api.setBearer(this.getToken())
+     // this.api.setBearer(this.getToken());
       cb(res, undefined);
 
 
@@ -37,13 +37,15 @@ export class AuthService {
   }
 
   logout() {
+    this.api.removeBearer();
+    this.storage.removeItem("User");
     /*
         this.http.post(api("log_out"), {
           "user": {
             "token": this.getStorage("User").token
           }
         });
-        this.storage.removeItem("User");
+        
     
         this.router.navigateByUrl("/login")*/
 

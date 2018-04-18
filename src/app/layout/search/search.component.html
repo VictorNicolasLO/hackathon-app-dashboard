@@ -1,0 +1,6 @@
+<mat-card (clickOutside)="onClickedOutside($event)" class="search-card" [class.mat-elevation-z1]="true" [ngClass]="{showSearch : isShowin}">
+  <mat-form-field class="example-full-width">
+    <input matInput >
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field> 
+</mat-card>

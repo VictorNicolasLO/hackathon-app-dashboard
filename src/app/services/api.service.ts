@@ -15,12 +15,12 @@ export class ApiService {
 
   }
 
-  setBearer(token){
-    this.headers.append("Bearer",token)
+  setBearer(token) {
+    this.headers.append("Bearer", token)
     this.options = new RequestOptions({ headers: this.headers });
 
   }
-  removeBearer(){
+  removeBearer() {
     this.headers.delete("Bearer")
     this.options = new RequestOptions({ headers: this.headers });
   }
@@ -28,10 +28,20 @@ export class ApiService {
   request(name, data?, method?) {
     return new Observable(observer => {
       const onResult = (res) => {
-        observer.next(JSON.parse(res._body))
+        try {
+          observer.next(JSON.parse(res._body))
+        } catch (e) {
+          console.log(e); // error in the above string (in this case, yes)!
+        }
+
       }
       const onError = (err) => {
-        observer.error(JSON.parse(err._body))
+        try {
+          observer.error(JSON.parse(err._body))
+        } catch (e) {
+          console.log(e)
+        }
+
       }
 
       if (data) {

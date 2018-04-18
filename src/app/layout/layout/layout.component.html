@@ -6,23 +6,41 @@
         <div class=circle (click)="drawer.toggle()">
             <i class="material-icons">menu</i>
         </div>
-        <div class=circle >
+        <div class=circle (click)="search.toggle();$event.stopPropagation()">
             <i class="material-icons">search</i>
         </div>
-        <div class=circle >
+        <div class=circle>
             <i class="material-icons">dashboard</i>
         </div>
-        <div class="right circle" >
-                <i class="material-icons">person</i>
-            </div>
+        <div class="right circle" [matMenuTriggerFor]="userMenu">
+            <i class="material-icons">person</i>
+        </div>
+        <mat-menu #userMenu="matMenu"> 
+            <button mat-menu-item (click)=logout()>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+            </button>
+        </mat-menu>
+
     </mat-toolbar-row>
+    
+
 </mat-toolbar>
+
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav mat-elevation-z2" mode="side" opened="false">
         <div class=header fxLayoutAlign="center center">Logo</div>
         <div>
 
-            <div (click)="goTo(menuItem.url)" *ngFor="let menuItem of menu" class=menu-item fxLayout="row">
+            <div (click)="goTo(menuItem.url)" *ngFor="let menuItem of menu" class=menu-item fxLayout="row" [ngClass]="{routeActive:actualRoute==menuItem.url}">
                 <i class="material-icons" fxFlex="10" fxLayoutAlign="center left">{{menuItem.icon}}</i>
                 <span fxFlex="90" fxLayoutAlign="center left">{{menuItem.name}}</span>
             </div>
@@ -32,7 +50,16 @@
     </mat-drawer>
 
     <div class="example-sidenav-content">
-
+        <app-search #search class="search-bar"></app-search>
+        <mat-toolbar class="tolbar tolbar-name" >
+                <mat-toolbar-row>
+                    
+                   {{actualName}}
+            
+                </mat-toolbar-row>
+                
+            
+            </mat-toolbar>
 
 
         <div class=container>

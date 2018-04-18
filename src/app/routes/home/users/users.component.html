@@ -1,0 +1,85 @@
+<div fxLayout="wrap column" fxLayoutAlign="start center" *ngIf="cardSelected>-1 && actualViewPlace" class=view>
+  <mat-card fxFlex="30" class="example-card">
+
+    <img mat-card-image src="http://www.myiconfinder.com/uploads/iconsets/256-256-35be70cfc8168446fdd9c9803ea9f6a1.png" alt="Photo of a Shiba Inu">
+    <mat-card-content style="position: relative;">
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{
+              'background-image' : 'url('+BASE_URL+actualPlace.UserImage+')',
+              'background-size': 'cover'
+            }"></div>
+      <div class=card-creator>{{actualPlace.Creator}}</div>
+      <div class=card-title>{{actualPlace.name}}</div>
+
+
+      <div class=card-category>{{actualPlace.Category}}</div>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+
+  <div fxFlex="70" fxFlexAlign="start" fxLayout="wrap row" fxLayoutAlign="start" style="padding:10px;" class=info>
+    <div fxFlex="30">
+      <mat-card>
+        <mat-card-content style="position: relative;">
+          <div class=card-number>{{actualViewPlace.checks.totalchecks}}</div>
+          <mat-divider></mat-divider>
+          <div class=card-title-stadistic>N Checks</div>
+
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="30">
+      <mat-card>
+        <mat-card-content style="position: relative;">
+          <div class=card-number>{{actualViewPlace.edades[0].AGE1}} - {{actualViewPlace.edades[0].AGE2}}</div>
+          <mat-divider></mat-divider>
+          <div class=card-title-stadistic>Años</div>
+
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="20" *ngFor="let gesture of actualViewPlace.emociones" [ngClass]="{hidden:gesture.count<=0}">
+      <mat-card>
+        <mat-card-content style="position: relative;">
+          <div class=card-number>{{gesture.count}}</div>
+          <mat-divider></mat-divider>
+          <div class=card-title-stadistic>{{gesture.name}}</div>
+
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+
+<div [ngClass]="{cardSelected_container:cardSelected>-1}" fxLayout="wrap column" fxLayoutAlign="start end">
+  <div class=card-container *ngFor="let place of places;let i = index" fxFlex="20" fxFlexAlign="stretch">
+    <mat-card class="example-card" [ngClass]="{card_selected:cardSelected==i}">
+
+      <!--http://www.myiconfinder.com/uploads/iconsets/256-256-35be70cfc8168446fdd9c9803ea9f6a1.png-->
+      <img mat-card-image src="{{ BASE_URL+place.imageFilename  }}" alt="Photo of a Shiba Inu">
+      <mat-card-content style="position: relative;">
+        <div mat-card-avatar class="example-header-image" [ngStyle]="{
+            'background-image' : 'url('+BASE_URL+place.UserImage+')',
+            'background-size': 'cover'
+          }"></div>
+        <div class=card-creator>{{place.edad}} años </div>
+        <div class=card-title>{{place.name}}</div>
+
+
+        <div class=card-category>{{place.email}}</div>
+
+      </mat-card-content>
+      <mat-card-actions>
+
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

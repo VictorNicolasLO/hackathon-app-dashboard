@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { menu } from '../../routes/Menu';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationStart, NavigationEnd } from '@angular/router';
+import { AuthModule } from '../../routes/auth/auth.module';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -8,7 +10,18 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
   menu = menu
-  constructor(private route:Router) { }
+  actualRoute;
+  actualName;
+  constructor(private route:Router,private auth:AuthService,ar:ActivatedRoute) {
+    this.route.events.subscribe((event)=>{
+      if(event instanceof NavigationEnd) {
+        console.log(event)
+        this.actualRoute = event.urlAfterRedirects
+        this.actualName = this.nameByUrl(this.actualRoute)
+      }
+  
+    })
+   }
   @ViewChild("drawer")
   drawer
 
@@ -19,6 +32,18 @@ export class LayoutComponent implements OnInit {
     
   }
 
+  nameByUrl(url){
+    for(var i in menu){
+      if(menu[i].url == this.actualRoute){
+        return menu[i].name;
+      }
+    }
+  } 
+
+  logout(){
+    this.auth.logout();
+    this.route.navigateByUrl("/auth")
+  }
   goTo(url){
     this.route.navigateByUrl(url)
   }

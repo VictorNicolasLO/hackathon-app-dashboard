@@ -1,0 +1,49 @@
+.add-button{
+    position: absolute;
+    right: 30px;
+    top:30px;
+    color:white;
+    background: rgb(95, 196, 95);
+    animation: show-button .3s;
+}
+
+
+.mat-table{
+    animation: show-form .4s;
+}
+
+.form-new{
+    width: 100%;
+    animation: show-form .2s;
+}
+
+mat-form-field{
+    padding: 20px;
+}
+
+.clear-both{
+    clear: both;
+}
+
+@keyframes show-form{
+    from{
+        opacity: 0;
+        transform: translateY(50px)
+    }
+
+}
+
+
+@keyframes show-button{
+    0%{
+        transform: scale(0)
+    }
+    70%{
+        transform: scale(1.2)
+
+    }
+    100%{
+        transform: scale(1)
+    }
+
+}

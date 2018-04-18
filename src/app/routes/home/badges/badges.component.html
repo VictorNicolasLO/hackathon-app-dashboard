@@ -1,0 +1,24 @@
+<button mat-fab class=add-button *ngIf="!showForm" (click)=openForm()>
+  <i class="material-icons">add</i>
+</button>
+<app-make-table class="table" *ngIf="badges && !showForm" [data]="badges"></app-make-table>
+
+<div *ngIf=showForm class=form-new>
+  <mat-card>
+    <div fxLayout="layout-wrap row"  >
+
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Nombre" [(ngModel)]="formData.name">
+      </mat-form-field>
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Descripcion" [(ngModel)]="formData.description">
+      </mat-form-field>
+
+      <div  fxFlex="100" style="text-align:right">
+        <button mat-button (click)=saveBadge()>Crear</button>
+        <button mat-button color="warn" (click)=closeForm()>Cancelar</button>
+      </div>
+    </div>
+  </mat-card>
+
+</div>

@@ -32,6 +32,7 @@ import { LoginComponent } from './routes/auth/login/login.component';
     LayoutModule,
     FlexLayoutModule,
     HttpModule,
+    
     //ServiceWorkerModule.register('ngsw-worker.js'),
     environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []
   ],

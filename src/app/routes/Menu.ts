@@ -1,17 +1,23 @@
 export const menu = [
+
     {
-        name : "Dashboard",
-        url : "/home",
-        icon : "dashboard"
+        name: "Lugares",
+        url: "/home/places",
+        icon: "place"
     },
     {
-        name : "Goals",
-        url : "/goals",
-        icon : "games"
+        name: "Usuarios",
+        url: "/home/users",
+        icon: "person"
     },
     {
-        name : "Bedges",
-        url : "/bedges",
-        icon : "turned_in_not"
+        name: "Categorías",
+        url: "/home/categories",
+        icon: "label"
+    },
+    {
+        name: "Insignias",
+        url: "/home/badges",
+        icon: "turned_in_not"
     }
 ]
